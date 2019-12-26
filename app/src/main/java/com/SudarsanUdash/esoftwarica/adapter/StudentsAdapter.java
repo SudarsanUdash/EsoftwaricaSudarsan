@@ -2,6 +2,7 @@ package com.SudarsanUdash.esoftwarica.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.SudarsanUdash.esoftwarica.EditStudents;
 import com.novc21.esoftwarica.R;
 
 import java.util.List;
@@ -73,6 +75,11 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Students edtStudents = studentsList.get(position);
+                int index = studentsList.indexOf(edtStudents);
+                EditStudents.index = index;
+                Intent intent = new Intent(context, EditStudents.class);
+                context.startActivity(intent);
 
             }
         });
